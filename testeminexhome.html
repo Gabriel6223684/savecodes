@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Plataforma de Jogos - Minex</title>
+    <meta name="description" content="Plataforma de jogos com tema vinho e botões com fundo transparente" />
+    <link href="/css/testeminexhome.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container" role="main">
+        <header class="top" aria-label="Cabeçalho da plataforma">
+            <div class="brand">
+                <div class="logo" aria-hidden="true">MG</div>
+                <div>
+                    <h1>Minex Games</h1>
+                    <p>Plataforma — descubra novos jogos</p>
+                </div>
+            </div>
+
+            <div class="actions" role="region" aria-label="Ações">
+                <div class="search" title="Pesquisar jogos">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <input id="search" placeholder="Pesquisar jogos, ex: corrida" aria-label="Pesquisar jogos" />
+                </div>
+
+                <button class="btn" id="filterBtn" title="Filtros">Filtros</button>
+                <a class="btn" href="#" id="loginBtn">Entrar</a>
+            </div>
+        </header>
+
+        <main>
+            <aside class="sidebar" aria-label="Filtros">
+                <h3>Categorias</h3>
+                <div>
+                    <button class="chip active" data-cat="todos">Todos</button>
+                    <button class="chip" data-cat="ação">Ação</button>
+                    <button class="chip" data-cat="corrida">Corrida</button>
+                    <button class="chip" data-cat="estratégia">Estratégia</button>
+                    <button class="chip" data-cat="indie">Indie</button>
+                </div>
+
+                <h3 style="margin-top:12px">Plataforma</h3>
+                <div>
+                    <button class="chip active" data-platform="todos">Todos</button>
+                    <button class="chip" data-platform="pc">PC</button>
+                    <button class="chip" data-platform="console">Console</button>
+                    <button class="chip" data-platform="mobile">Mobile</button>
+                </div>
+            </aside>
+
+            <section class="content" aria-label="Conteúdo principal">
+                <div class="hero" role="region" aria-label="Destaque">
+                    <div class="hero-left">
+                        <h2>Jogos em destaque</h2>
+                        <p>Escolha seu jogo — novidades e clássicos em um só lugar.</p>
+                    </div>
+                    <div class="hero-actions">
+                        <button class="btn" id="exploreBtn">Explorar</button>
+                        <button class="btn">Meus jogos</button>
+                    </div>
+                </div>
+
+                <div class="grid" id="gamesGrid" aria-live="polite">
+                    <!-- Cards gerados por JS -->
+                </div>
+
+                <footer>© <span id="ano"></span> Vinho Games — feito com <span aria-hidden="true">♥</span></footer>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-hidden="true">
+        <div class="modal" role="document" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="poster" id="modalPoster">JOGO</div>
+            <div class="info">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
+                    <h3 id="modalTitle">Título do jogo</h3>
+                    <button class="close" id="closeModal" aria-label="Fechar">✕</button>
+                </div>
+                <p id="modalDesc">Descrição do jogo — aqui vai uma breve sinopse, características e informações
+                    técnicas.</p>
+                <div style="margin-top:12px" class="meta">
+                    <span id="modalGenre">Gênero</span>
+                    <span id="modalPlatform">Plataforma</span>
+                </div>
+                <div class="card-actions" style="margin-top:14px">
+                    <button class="btn" id="playNow">Jogar agora</button>
+                    <button class="btn" id="addFav">Favoritar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/testeminexhome.js"></script>
+    <script src="/js/allscript.js"></script>
+</body>
+
+</html>

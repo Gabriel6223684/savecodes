@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Minex — Inteligência Artificial</title>
+    <meta name="description"
+        content="Minex — Assistente de IA para empresas e desenvolvedores. Chat, API e automações inteligentes." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f1724;
+            --card: #0b1220;
+            --muted: #9aa4b2;
+            --accent: #6ee7b7;
+            /* mint */
+            --brand: #7c5cff;
+            /* purple */
+            --glass: rgba(255, 255, 255, 0.04);
+            color-scheme: dark;
+            font-family: 'Inter', system-ui, Segoe UI, Roboto, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            background: linear-gradient(180deg, #081025 0%, var(--bg) 100%);
+            color: #e6eef6
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 24px
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--brand), #4dd2ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(124, 92, 255, 0.15)
+        }
+
+        .logo svg {
+            width: 28px;
+            height: 28px;
+            transform: translateY(-2px)
+        }
+
+        h1.site-title {
+            font-size: 18px;
+            margin: 0
+        }
+
+        p.tag {
+            margin: 0;
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        nav {
+            display: flex;
+            gap: 12px
+        }
+
+        .btn {
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: transparent;
+            cursor: pointer
+        }
+
+        .btn.primary {
+            background: linear-gradient(90deg, var(--brand), #4dd2ff);
+            color: #041226;
+            border: none
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 28px;
+            margin-top: 36px;
+            align-items: start
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+            padding: 26px;
+            border-radius: 14px;
+            box-shadow: 0 8px 40px rgba(3, 7, 18, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.03)
+        }
+
+        .hero h2 {
+            margin: 0 0 8px 0;
+            font-size: 34px;
+            line-height: 1.02
+        }
+
+        .hero p {
+            color: var(--muted);
+            margin: 0 0 18px 0
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 18px
+        }
+
+        .feature {
+            padding: 16px;
+            border-radius: 12px;
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, 0.02)
+        }
+
+        .feature h3 {
+            margin: 0 0 6px 0;
+            font-size: 14px
+        }
+
+        .feature p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        /* Chat demo */
+        .chat {
+            height: 480px;
+            display: flex;
+            flex-direction: column
+        }
+
+        .msgs {
+            flex: 1;
+            overflow: auto;
+            padding: 12px;
+            border-radius: 10px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent);
+            border: 1px solid rgba(255, 255, 255, 0.02)
+        }
+
+        .input-area {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px
+        }
+
+        .input-area input {
+            flex: 1;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: transparent;
+            color: inherit
+        }
+
+        .msg {
+            margin: 8px 0;
+            display: flex
+        }
+
+        .msg.user {
+            justify-content: flex-end
+        }
+
+        .bubble {
+            max-width: 78%;
+            padding: 10px 12px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03)
+        }
+
+        .bubble.user {
+            background: linear-gradient(90deg, var(--brand), #4dd2ff);
+            color: #02102a
+        }
+
+        /* sections */
+        section {
+            margin-top: 36px
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px
+        }
+
+        footer {
+            margin-top: 54px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+            padding: 20px 0
+        }
+
+        /* responsive */
+        @media (max-width:960px) {
+            .hero {
+                grid-template-columns: 1fr
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .chat {
+                height: 360px
+            }
+        }
+
+        @media (max-width:600px) {
+            .features {
+                grid-template-columns: 1fr
+            }
+
+            .logo {
+                width: 40px;
+                height: 40px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <div class="logo" aria-hidden>
+                    <!-- simple M glyph -->
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 20V4l7 9 7-9v16" stroke="white" stroke-width="1.4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="site-title">Minex</h1>
+                    <p class="tag">IA conversacional — automações, API e integração fácil</p>
+                </div>
+            </div>
+            <nav>
+                <a class="btn" href="#features">Recursos</a>
+                <a class="btn" href="#pricing">Planos</a>
+                <button class="btn primary"
+                    onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Começar</button>
+            </nav>
+        </header>
+
+        <main class="hero">
+            <div class="card">
+                <h2>Minex — uma inteligência artificial criada para acelerar seu produto</h2>
+                <p>Integre chat, sumarização, extração de dados e automações via API. Escalável, segura e fácil de usar.
+                </p>
+                <div class="features" id="features">
+                    <div class="feature">
+                        <h3>Chat inteligente</h3>
+                        <p>Respostas contextuais com memória de conversa e tons configuráveis.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>API rápida</h3>
+                        <p>Endpoints REST simples para gerar texto, extrair campos e classificar conteúdo.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Privacidade</h3>
+                        <p>Logs opcionais e controle total sobre retenção de dados.</p>
+                    </div>
+                </div>
+
+                <section>
+                    <h3>Como funciona</h3>
+                    <p style="color:var(--muted)">Minex recebe prompts via API ou interface, mantém contexto por sessão
+                        e retorna respostas otimizadas para produtividade ou atendimento ao cliente.</p>
+                    <div style="margin-top:14px">
+                        <a class="btn" href="#demo"
+                            onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Ver demo</a>
+                        <a class="btn" style="margin-left:8px" href="#pricing">Ver planos</a>
+                    </div>
+                </section>
+            </div>
+
+            <aside class="card chat" id="demo">
+                <h3 style="margin:0 0 8px 0">Demo rápida — converse com Minex</h3>
+                <div class="msgs" id="msgs" aria-live="polite"></div>
+                <div class="input-area">
+                    <input id="userInput" placeholder="Escreva uma pergunta (ex: Resuma o README do meu projeto)" />
+                    <button class="btn primary" id="sendBtn">Enviar</button>
+                </div>
+                <p style="margin-top:8px;color:var(--muted);font-size:12px">* Esta demo simula respostas. Para integrar
+                    a API real, fornecemos SDKs e docs.</p>
+            </aside>
+        </main>
+
+        <section class="card grid-2">
+            <div>
+                <h3>Casos de uso</h3>
+                <ul style="color:var(--muted)">
+                    <li>Atendimento ao cliente com resposta automática e encaminhamento</li>
+                    <li>Geração e revisão de conteúdo para marketing</li>
+                    <li>Extração automática de dados a partir de contratos e emails</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Tecnologias</h3>
+                <p style="color:var(--muted)">SDKs: Node.js, Python, PHP. API REST + WebSocket, autenticação por token,
+                    quotas por plano.</p>
+            </div>
+        </section>
+
+        <section id="pricing">
+            <div class="card">
+                <h3>Planos</h3>
+                <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+                    <div
+                        style="flex:1;min-width:220px;padding:16px;border-radius:12px;background:rgba(255,255,255,0.02)">
+                        <h4>Gratuito</h4>
+                        <p style="color:var(--muted)">Testes e protótipos — 2.000 tokens/mês</p>
+                        <p style="font-weight:700">R$0 / mês</p>
+                        <button class="btn">Criar conta</button>
+                    </div>
+                    <div
+                        style="flex:1;min-width:220px;padding:16px;border-radius:12px;background:linear-gradient(90deg,var(--brand),#4dd2ff);color:#02102a">
+                        <h4>Pro</h4>
+                        <p style="font-weight:600">Uso produtivo — 200k tokens/mês</p>
+                        <p style="font-weight:700">R$199 / mês</p>
+                        <button class="btn" style="background:rgba(2,6,15,0.05);border:none">Assinar</button>
+                    </div>
+                    <div
+                        style="flex:1;min-width:220px;padding:16px;border-radius:12px;background:rgba(255,255,255,0.02)">
+                        <h4>Enterprise</h4>
+                        <p style="color:var(--muted)">SLA, instância dedicada e suporte</p>
+                        <p style="font-weight:700">Sob consulta</p>
+                        <button class="btn">Fale conosco</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card" id="contact">
+            <h3>Contato</h3>
+            <p style="color:var(--muted)">Quer integrar Minex ao seu produto? Mande uma mensagem.</p>
+            <form id="contactForm" onsubmit="event.preventDefault();alert('Mensagem enviada (simulação)')">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+                    <input required placeholder="Nome" />
+                    <input required placeholder="Email" />
+                </div>
+                <textarea required placeholder="Como podemos ajudar?"
+                    style="width:100%;margin-top:10px;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"></textarea>
+                <div style="margin-top:10px">
+                    <button class="btn primary" type="submit">Enviar</button>
+                </div>
+            </form>
+        </section>
+
+        <footer>
+            <div>© <span id="year"></span> Minex • Desenvolvido com ❤️</div>
+        </footer>
+    </div>
+
+    <script>
+        // small demo chat logic (simulado)
+        const msgsEl = document.getElementById('msgs');
+        const input = document.getElementById('userInput');
+        const btn = document.getElementById('sendBtn');
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        function appendMessage(text, who = 'ai') {
+            const m = document.createElement('div');
+            m.className = 'msg ' + (who === 'user' ? 'user' : '');
+            const b = document.createElement('div');
+            b.className = 'bubble ' + (who === 'user' ? 'user' : '');
+            b.textContent = text;
+            m.appendChild(b);
+            msgsEl.appendChild(m);
+            msgsEl.scrollTop = msgsEl.scrollHeight;
+        }
+
+        btn.addEventListener('click', () => {
+            const t = input.value.trim();
+            if (!t) return;
+            appendMessage(t, 'user');
+            input.value = '';
+            appendMessage('Minex está pensando...');
+            // simple simulated response
+            setTimeout(() => {
+                const reply = simulateReply(t);
+                // replace last AI 'thinking' bubble
+                const bubbles = msgsEl.querySelectorAll('.msg');
+                const last = bubbles[bubbles.length - 1];
+                if (last && last.textContent.includes('pensando')) {
+                    last.remove();
+                }
+                appendMessage(reply, 'ai');
+            }, 800 + Math.random() * 800);
+        });
+
+        input.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); btn.click(); } });
+
+        function simulateReply(text) {
+            text = text.toLowerCase();
+            if (text.includes('resuma') || text.includes('resumo')) return 'Claro — envie o texto que quer resumir (ou cole um README) e eu retorno um resumo conciso.';
+            if (text.includes('api') || text.includes('integrar')) return 'A API é RESTful com autenticação por token. Você recebe endpoints para chat, completions e extração. Quer um exemplo em Node.js?';
+            if (text.includes('preço') || text.includes('valor')) return 'Temos planos Free, Pro e Enterprise. Posso enviar detalhes dos limites e preços.';
+            if (text.includes('oi') || text.includes('olá')) return 'Olá! Eu sou o Minex — como posso ajudar hoje?';
+            return 'Boa pergunta — posso ajudar a criar um prompt, gerar esboço de texto, ou simular uma chamada de API. Deseja um exemplo prático?';
+        }
+
+        // seed
+        appendMessage('Olá! Você está conversando com uma demo da Minex. Pergunte algo ou peça um exemplo de integração.');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Learn Programming</title>
+    <style>
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: #010101;
+            color: white;
+            margin: 20px;
+        }
+
+        /* --- Main Layout --- */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        fieldset,
+        .additional-resources,
+        .learning-steps,
+        .coding-php {
+            flex: 1 1 45%;
+            min-width: 320px;
+            border: 2px solid #4CAF50;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #1a1a1a;
+            box-shadow: 0 0 12px rgba(0, 255, 100, 0.15);
+        }
+
+        legend {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        footer {
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 10px;
+        }
+
+        .text-formatting {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #ff9800;
+            margin-top: 10px;
+        }
+
+        .formatting p {
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        pre {
+            background-color: #333;
+            padding: 8px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 8px 0;
+        }
+
+        code {
+            background-color: #333;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        mark {
+            background-color: #ffeb3b;
+            color: #000;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        article {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        h3,
+        h4 {
+            margin: 8px 0;
+        }
+
+        hr {
+            border: 1px solid #4CAF50;
+            margin: 10px 0;
+        }
+
+        div.coding-php {
+            margin-top: 15px;
+            background-color: #1a1a1a;
+            border: 2px solid #ff9800;
+        }
+
+        /* --- Responsiveness --- */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
+        footer {
+            background-color: #0f0f0f;
+            text-align: center;
+            padding: 20px 10px;
+            color: #888;
+            border-top: 2px solid #4CAF50;
+            margin-top: auto;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <article>
+        <header>
+            <h1>Learning Web Programming</h1>
+        </header>
+        <section>
+            <p>This article covers the essential steps to learn web programming, including choosing a code editor,
+                using the integrated terminal, and tips to improve your skills.</p>
+        </section>
+    </article>
+
+    <div class="container">
+        <fieldset>
+            <legend>Want to learn HTML, CSS, and JS? Follow these steps:</legend>
+            <p>First, have a good computer for programming — solid processor, 8GB RAM, and SSD.</p>
+            <p>Use a great editor like <strong>Visual Studio Code</strong>, <strong>Sublime Text</strong>, or
+                <strong>Atom</strong>.
+            </p>
+            <p>VSCode is excellent for beginners and has an integrated terminal (<code>Ctrl + `</code>).</p>
+            <p class="text-formatting">Proof that learning programming is no mystery:</p>
+            <div class="formatting">
+                <p>Practice, keep a routine, and build real projects.</p>
+                <p>Learn from your mistakes and join online communities.</p>
+                <footer>The more you practice, the better you get!</footer>
+            </div>
+        </fieldset>
+
+        <div class="additional-resources">
+            <h3>Useful Links:</h3>
+
+            <h4 style="color:#4CAF50;">Front-end</h4>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">MDN Web Docs - HTML</a><br>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">MDN Web Docs - CSS</a><br>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">MDN Web Docs - JavaScript</a><br>
+            <a href="https://www.w3schools.com/html/">W3Schools - HTML</a><br>
+            <a href="https://www.w3schools.com/css/">W3Schools - CSS</a><br>
+            <a href="https://www.w3schools.com/js/">W3Schools - JavaScript</a><br>
+            <a href="https://www.freecodecamp.org/">FreeCodeCamp</a><br>
+            <a href="https://www.codecademy.com/">Codecademy</a><br>
+            <a href="https://www.khanacademy.org/computing/computer-programming/html-css">Khan Academy -
+                HTML/CSS</a><br>
+            <a href="https://css-tricks.com/">CSS-Tricks</a>
+
+            <hr>
+
+            <h4 style="color:#ff9800;">Back-end (PHP)</h4>
+            <a href="https://www.php.net/manual/en/">Official PHP Documentation</a><br>
+            <a href="https://www.w3schools.com/php/">W3Schools - PHP</a><br>
+            <a href="https://www.tutorialspoint.com/php/">TutorialsPoint - PHP</a><br>
+            <a href="https://www.geeksforgeeks.org/php/">GeeksForGeeks - PHP</a><br>
+            <a href="https://www.freecodecamp.org/news/learn-php-complete-beginners-guide/">FreeCodeCamp - Complete PHP
+                Guide</a><br>
+            <a href="https://www.hostinger.com/tutorials/what-is-php">Hostinger - What is PHP</a><br>
+            <a href="https://www.phptherightway.com/">PHP The Right Way (Best Practices)</a>
+
+            <hr style="border-color:#03a9f4;">
+
+            <h4 style="color:#03a9f4;">Databases</h4>
+            <a href="https://dev.mysql.com/doc/">MySQL Official Documentation</a><br>
+            <a href="https://www.w3schools.com/mysql/">W3Schools - MySQL</a><br>
+            <a href="https://www.postgresql.org/docs/">PostgreSQL Official Documentation</a><br>
+            <a href="https://www.tutorialspoint.com/postgresql/">TutorialsPoint - PostgreSQL</a><br>
+            <a href="https://www.mongodb.com/docs/">MongoDB Official Documentation</a><br>
+            <a href="https://www.sqlite.org/docs.html">SQLite Official Documentation</a><br>
+            <a href="https://www.geeksforgeeks.org/sql-tutorial/">GeeksForGeeks - SQL</a>
+
+            <p style="margin-top:10px;"><code>Good luck on your coding journey!</code></p>
+        </div>
+
+        <div class="learning-steps">
+            <h3>Steps to Learn Programming:</h3>
+            <ol>
+                <li>Choose a programming language (HTML, CSS, JavaScript, PHP).</li>
+                <li>Set up your development environment.</li>
+                <li>Study the basic fundamentals.</li>
+                <li>Practice by writing small programs.</li>
+                <li>Join online communities.</li>
+                <li>Build real-world projects.</li>
+                <li>Stay updated with new technologies.</li>
+            </ol>
+
+            <div class="coding-php">
+                <h3>Basic PHP Example:</h3>
+                <pre>&lt;?php
+echo "Hello, World!";
+?&gt;</pre>
+            </div>
+
+            <div class="coding-php">
+                <h3>Advanced Example with MySQL:</h3>
+                <pre>&lt;?php
+$conn = new mysqli("localhost", "user", "pass", "db");
+if ($conn->connect_error) die("Error: " . $conn->connect_error);
+$result = $conn->query("SELECT * FROM MyGuests");
+while($row = $result->fetch_assoc()) echo $row["firstname"];
+$conn->close();
+?&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>💡 Tip: Practice is the key to success in programming!</p>
+        <p>© 2025 MineGame2D | Built with 💚 by code enthusiasts</p>
+    </footer>
+
+    <script>
+        console.log("Page loaded successfully!");
+    </script>
+</body>
+
+</html>
